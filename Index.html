@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column; /* Updated to column direction */
+      height: 100vh;
+      background: url('Pus.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    button {
+      font-size: 16px;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #result {
+      text-align: center;
+      font-size: 20px;
+      color: #fff;
+      margin-top: 20px;
+    }
+  </style>
+  <title>Valentine's Day Proposal</title>
+</head>
+<body>
+  <h1>Will you be my Valentine?</h1>
+  <div id="result"></div>
+  <button id="yesButton" onclick="respond(true)">Yes</button>
+  <button id="noButton" onclick="respond(false)">No</button>
+
+  <script>
+    let yesFontSize = 16; // Initial font size for Yes button
+    let noFontSize = 16;  // Initial font size for No button
+
+    function respond(isYes) {
+      if (isYes) {
+        displayResult("Yay! 🎉 Happy Valentine's Day! You're now my Valentine! ❤️");
+        changeBackground();
+      } else {
+        yesFontSize *= 2;  // Increase the font size of Yes button
+        noFontSize -= 4;   // Decrease the font size of No button
+
+        document.getElementById("yesButton").style.fontSize = yesFontSize + "px";
+        document.getElementById("noButton").style.fontSize = noFontSize + "px";
+
+        askAgain();
+      }
+    }
+
+    function askAgain() {
+      document.getElementById("result").innerHTML = "Can you be my Valentine?";
+    }
+
+    function displayResult(message) {
+      document.getElementById("result").innerHTML = message;
+    }
+
+    function changeBackground() {
+      document.body.style.background = "url('Ahuahu.gif') no-repeat center center fixed";
+      document.body.style.backgroundSize = "cover";
+    }
+  </script>
+</body>
+</html>
